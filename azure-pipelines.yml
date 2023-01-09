@@ -20,3 +20,10 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'yo-user-assigned-mi'
+    appType: 'webApp'
+    appName: 'yo-webapp-devops'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
