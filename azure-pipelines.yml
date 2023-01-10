@@ -22,7 +22,7 @@ steps:
     goals: 'package'
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: 'e65bd8ac-d28a-4218-a4bd-167c32a0a1f7'
+    azureSubscription: 'Private Test Sub YOONAOH(e65bd8ac-d28a-4218-a4bd-167c32a0a1f7)'
     appType: 'webApp'
     appName: 'yo-webapp-devops'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
