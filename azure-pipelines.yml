@@ -23,14 +23,14 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/**'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: 'Private Test Sub YOONAOH(e65bd8ac-d28a-4218-a4bd-167c32a0a1f7)'
-    appType: 'webApp'
-    appName: 'yo-webapp-devops'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    deploymentMethod: 'auto'
+# - task: AzureWebApp@1
+#   inputs:
+#     azureSubscription: 'Private Test Sub YOONAOH(e65bd8ac-d28a-4218-a4bd-167c32a0a1f7)'
+#     appType: 'webApp'
+#     appName: 'yo-webapp-devops'
+#     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+#     deploymentMethod: 'auto'
