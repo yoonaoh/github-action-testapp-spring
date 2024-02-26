@@ -47,7 +47,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: '테스트앱-yoonaoh'
+          app-name: 'xn---yoonaoh-9e97a4yp2r0b3td'
           slot-name: 'Production'
           package: '*.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D04BC39BFCAC4450B79998F12435C26F }}
