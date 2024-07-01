@@ -17,3 +17,5 @@ steps:
     appType: 'webApp'
     WebAppName: 'yo-webapp-devops'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+- task: PublishBuildArtifacts@1
