@@ -1,20 +1,23 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- master
+- main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
+
+variables:
+  buildConfiguration: 'Release'
 
 steps:
-- task: AzureWebApp@1
+- task: DotNetCoreCLI@2
   inputs:
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '--configuration $(buildConfiguration)'
+    zipAfterPublish: true
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
     azureSubscription: 'Private Test Sub YOONAOH(e65bd8ac-d28a-4218-a4bd-167c32a0a1f7)'
     appType: 'webApp'
-    appName: 'yo-webapp-devops'
-    package: '/home/vsts/work/1/s/**/*.zip'
-    deploymentMethod: 'auto'
-- task: PublishBuildArtifacts@1
+    WebAppName: 'yo-webapp-devops'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
