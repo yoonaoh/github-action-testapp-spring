@@ -15,6 +15,6 @@ steps:
     azureSubscription: 'Private Test Sub YOONAOH(e65bd8ac-d28a-4218-a4bd-167c32a0a1f7)'
     appType: 'webApp'
     appName: 'yo-webapp-devops'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    package: '/home/vsts/work/1/s/**/*.zip'
     deploymentMethod: 'auto'
 - task: PublishBuildArtifacts@1
